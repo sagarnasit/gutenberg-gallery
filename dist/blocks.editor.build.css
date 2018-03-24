@@ -10,8 +10,23 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
+.imageBox {
+  position: relative;
+  width: 200px;
+  float: left;
+  padding: 3px; }
+
 .imageCross {
-  position: static;
+  position: absolute;
   top: 0;
-  right: 0;
+  right: 5px;
+  font-weight: bold;
+  color: red;
   cursor: pointer; }
+
+.clearDiv {
+  clear: both; }
+
+.photoImage {
+  width: 200px;
+  height: 250px !important; }

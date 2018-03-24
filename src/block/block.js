@@ -72,11 +72,13 @@ registerBlockType( 'cgb/block-my-block', {
 
 				photos.map( (photo) => {
 					return (
-						<div>
+						<div className='imageBox'>
 							<span key={photo.id} href=""
 								  onClick={ () => removePhoto(photo) }
-								  className='imageCross'>x</span>
-							<img key={ photos.id } src={photo.url} width='200px'/>
+								  className='imageCross'
+								  title="remove">
+								x</span>
+							<img className='photoImage' key={ photos.id } src={photo.url} />
 						</div>
 					)
 				})
@@ -100,6 +102,7 @@ registerBlockType( 'cgb/block-my-block', {
 				<div>
 					{ displayImages(photos) }
 				</div>
+				<div className='clearDiv'></div>
 			</div>
 
 		)
@@ -114,9 +117,22 @@ registerBlockType( 'cgb/block-my-block', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: function( { attributes } ) {
-		const { content } = attributes;
+		const { photos } = attributes;
+		const displayImages = (photos) => {
+			return (
+
+				photos.map( (photo) => {
+					return (
+						<div className='imageBoxStyle'>
+							<img className='photoImageStyle' key={ photos.id } src={photo.url} width='200px'/>
+						</div>
+					)
+				})
+
+			)
+		}
 		return (
-			<p>{ content }</p>
+			<div>{ displayImages(photos) }</div>
 		);
 	},
 } );
