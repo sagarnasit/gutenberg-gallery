@@ -7,15 +7,31 @@
 .imageBoxStyle {
   position: relative;
   width: 200px;
+  height: 200px;
+  overflow: hidden;
   float: left;
-  margin: 3px;
-  border: 1px solid black;
+  padding: 2px;
 }
 .clearDiv {
   clear: both;
 }
 
 .photoImageStyle {
-  width: 200px;
-  height: 200px;
+  position: absolute;
+  width: auto;
+  //-webkit-transform: translate(-50%,-50%);
+  //-ms-transform: translate(-50%,-50%);
+  //transform: translate(-50%,-50%);
+}
+
+.blurBG {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: black;
+  opacity: 0.6;
+  cursor: pointer;
 }

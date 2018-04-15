@@ -73,12 +73,13 @@ registerBlockType( 'cgb/block-my-block', {
 				photos.map( (photo) => {
 					return (
 						<div className='imageBox'>
-							<span key={photo.id} href=""
-								  onClick={ () => removePhoto(photo) }
-								  className='imageCross'
-								  title="remove">
-								x</span>
+
 							<img className='photoImage' key={ photos.id } src={photo.url} />
+							<div className='blurBG' ></div>
+							<div className='image-title'>
+								{ photo.title }
+							</div>
+							<div className='remove-block' onClick={() => removePhoto(photo)}>Remove</div>
 						</div>
 					)
 				})
@@ -123,14 +124,21 @@ registerBlockType( 'cgb/block-my-block', {
 
 				photos.map( (photo) => {
 					return (
-						<div className='imageBoxStyle'>
-							<img className='photoImageStyle' key={ photos.id } src={photo.url} width='200px'/>
+						<div className='imageBox'>
+
+							<img className='photoImage' key={ photos.id } src={photo.url} />
+							<div className='blurBG' ></div>
+							<div className='image-title'>
+								{ photo.title }
+							</div>
+							<div className='remove-block' onClick={() => removePhoto(photo)}>Remove</div>
 						</div>
 					)
 				})
 
 			)
 		}
+
 		return (
 			<div>{ displayImages(photos) }</div>
 		);
